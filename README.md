@@ -1,4 +1,4 @@
-# react-native-firebase-phone-auth
+# react-native-expo-firebase-phone-auth
 
 This is an example of firebase phone auth in react native application. i searched in google lot of areas then i found this example this is working good.This method not fully belongs to me..i will post a video also here....
 
