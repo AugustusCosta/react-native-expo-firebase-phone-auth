@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { ScrollView, TextInput, Button } from 'react-native';
-import { signInWithPhoneNumber } from '../domain/phoneAuthentication';
+import { signInAnonymous, signInWithPhoneNumber } from '../domain/phoneAuthentication';
 
 const PhoneAuthentication = () => {
     const [phone, setPhone] = useState('+5585988424402');
     const [smsCode, setSmsCode] = useState('');
     const [confirmSMSCode, setConfirmSMSCode] = useState();
 
+    const handleSendSMSAnonymous = async () => {
+        signInAnonymous(phone).then(confirmation => {
+            setConfirmSMSCode(() => confirmation);
+        });
+    };
+    
     const handleSendSMS = async () => {
         signInWithPhoneNumber(phone).then(confirmation => {
             setConfirmSMSCode(() => confirmation);
@@ -29,7 +35,8 @@ const PhoneAuthentication = () => {
                     keyboardType="phone-pad"
                     placeholder="Your phone"
                 />
-                <Button onPress={handleSendSMS} title="Next" />
+                <Button onPress={handleSendSMS} title="SMS Login" />
+                <Button onPress={handleSendSMSAnonymous} title="SMS Login Anonymous" />
             </ScrollView>
         );
     else

@@ -8,6 +8,29 @@ const captchaUrl = `https://expo-firebase-phone-auth.firebaseapp.com/captcha.htm
     ''
 )}`;
 
+export const signInAnonymous = async phone => {
+
+    const signInAnonymousPromise = new Promise(async (resolve, reject) => {
+        try {
+            const confirmationResult = await firebase
+                .auth()
+                .signInAnonymously();
+
+            resolve(async smsCode => {
+                try {
+                    await confirmationResult.confirm(smsCode);
+                } catch (e) {
+                    console.warn(e);
+                }
+            });
+        } catch (e) {
+            reject(e);
+        }
+    });
+
+    return signInAnonymousPromise;
+};
+
 export const signInWithPhoneNumber = async phone => {
     const sendSMSPromise = new Promise((resolve, reject) => {
         Linking.addEventListener(

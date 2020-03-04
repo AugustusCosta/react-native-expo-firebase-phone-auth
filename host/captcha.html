@@ -24,7 +24,7 @@
                 container.id = 'captcha';
                 document.body.appendChild(container);
                 var captcha = new firebase.auth.RecaptchaVerifier('captcha', {
-                    size: 'normal',
+                    size: 'invisible',
                     callback: function(token) {
                         console.log('Fineshed captcha');
                         callback(token);
