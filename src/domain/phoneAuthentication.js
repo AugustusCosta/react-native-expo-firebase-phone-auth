@@ -4,7 +4,7 @@ import * as firebase from 'firebase';
 import * as WebBrowser from 'expo-web-browser';
 import { Platform } from 'react-native';
 
-const captchaUrl = `https://.../captcha.html?appurl=${Linking.makeUrl(
+const captchaUrl = `https://expo-firebase-phone-auth.firebaseapp.com/captcha.html?appurl=${Linking.makeUrl(
     ''
 )}`;
 
