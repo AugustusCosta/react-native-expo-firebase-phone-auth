@@ -52,9 +52,7 @@ const AppContainer = (props: Props) => {
                         />
 
                         <Text>Made by</Text>
-                        <Text>Thareek Anvar</Text>
-                        <Text>Contributors</Text>
-                        <Text>Alex P. Andrade</Text>
+                        <Text>Augustus Costa</Text>
                     </>
                 ) : (
                     <>
@@ -65,9 +63,7 @@ const AppContainer = (props: Props) => {
                             onPress={() => setIsAuthenticatingWithPhone(true)}
                         />
                         <Text>Made by</Text>
-                        <Text>Thareek Anvar</Text>
-                        <Text>Contributors</Text>
-                        <Text>Alex P. Andrade</Text>
+                        <Text>Augustus Costa</Text>
                     </>
                 )}
             </View>

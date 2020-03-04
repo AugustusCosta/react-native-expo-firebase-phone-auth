@@ -6,10 +6,11 @@
         "sdkVersion": "36.0.0",
         "platforms": ["ios", "android"],
         "version": "1.0.0",
+        "scheme": "authentication",
         "orientation": "portrait",
-        "icon": "./assets/images/icon.png",
+        "icon": "./assets/icon.png",
         "splash": {
-            "image": "./assets/images/splash.png",
+            "image": "./assets/splash.png",
             "resizeMode": "contain",
             "backgroundColor": "#ffffff"
         },
