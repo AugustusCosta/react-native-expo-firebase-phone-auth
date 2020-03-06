@@ -21,11 +21,15 @@
         <script>
             function getToken(callback) {
                 var container = document.createElement('div');
-                container.id = 'captcha';
+                // container.id = 'captcha';
+                container.id = 'captcha' + Math.random * 1000;
                 document.body.appendChild(container);
-                var captcha = new firebase.auth.RecaptchaVerifier('captcha', {
+                // var captcha = new firebase.auth.RecaptchaVerifier('captcha', {
+                var captcha = new firebase.auth.RecaptchaVerifier(container.id, {
                     size: 'invisible',
-                    callback: function(token) {
+
+                    // size: 'normal',
+                    'callback': function(token) {
                         console.log('Fineshed captcha');
                         callback(token);
                     },
