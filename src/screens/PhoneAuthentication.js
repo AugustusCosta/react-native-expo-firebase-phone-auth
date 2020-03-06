@@ -18,7 +18,13 @@ const PhoneAuthentication = () => {
     };
 
     const handleConfirmSMSCode = async () => {
-        const result = await confirmSMSCode(smsCode);
+        try {
+            const result = await confirmSMSCode.confirm(smsCode);
+            console.log(result);
+            
+        } catch (e) {
+            console.warn(e);
+        }
     };
 
     const handleTokenEncoded = async tokenEncoded => {
@@ -35,13 +41,7 @@ const PhoneAuthentication = () => {
                 .auth()
                 .signInWithPhoneNumber(phone, captchaVerifier);
 
-            setConfirmSMSCode(async smsCode => {
-                try {
-                    await confirmationResult.confirm(smsCode);
-                } catch (e) {
-                    console.warn(e);
-                }
-            });
+            setConfirmSMSCode(confirmationResult);
             setShowWebView(false);
         } catch (e) {
             console.error(e);
@@ -57,12 +57,12 @@ const PhoneAuthentication = () => {
         
         setCaptchaUrl(url);
 
-        console.log('url', url);
+        // console.log('url', url);
 
-        // const tokenEncoded = Linking.parse(url).queryParams['token'];
+        const tokenEncoded = Linking.parse(url).queryParams['token'];
         // console.log('tokenEncoded', tokenEncoded);
-        // if (tokenEncoded)
-        //     handleTokenEncoded(tokenEncoded);
+        if (tokenEncoded)
+            handleTokenEncoded(tokenEncoded);
     };
 
     const onError = error => {
